@@ -8,6 +8,5 @@
         public int Item { get; set; }
         public string Descripcion { get; set; }
         public decimal PuntajeMax { get; set; }
-
     }
 }
