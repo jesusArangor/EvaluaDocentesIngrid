@@ -1,0 +1,90 @@
+body{
+    
+    background-image: url(../img/uni.png);
+    background-repeat: no-repeat;
+    background-size: 15cm;
+    background-color: rgba(0, 119, 255, 0.479);
+    background-attachment:fixed;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+.usuario{
+    display: flex;
+    justify-content: center;
+}
+.contraseña{
+    display: flex;
+    justify-content: center;
+}
+.boton{
+    display: flex;
+    justify-content: center;
+}
+.formulario{
+    
+    background: rgba(33, 76, 216, 0.521);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,-0,-0,-0.568);
+    color: white;
+}
+.form-control{
+    background: rgba(0,-0,-0, -.3);
+    border-style: solid;
+    transition: 0,7s ease-in;
+}
+
+
+.form-control::placeholder{
+    color:white;
+}
+.ingresar{
+    background: #222A3F;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 700!important;
+    box-shadow: 0 0 30px rgba(0,-0,-0,-0.568);
+    color:white;
+    transition: 0,7s ease-in;
+}
+ingresar:hover{
+    color:white;
+}
+.olvide{
+    color: blue;
+    text-decoration-color: none;
+    text-decoration-line: none;
+    font-size: 15px;
+    font-weight: 700!important;
+    border: 2px solid rgb(247, 241, 241);
+    padding: 10px;
+    border-radius: 10px;
+
+
+}
+.olvide:hover{
+    color: rgba(75, 72, 241, 0.952);
+    text-decoration-color: none;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+.registrarme{
+    color: blue;
+    text-decoration-color: none;
+    text-decoration-line: none;
+    font-size: 15px;
+    font-weight: 700!important;
+    border: 2px solid rgb(247, 245, 245);
+    padding: 10px;
+    border-radius: 10px;
+   
+}
+.registrarme:hover{
+    color: rgba(75, 72, 241, 0.952);
+    text-decoration-color: none;
+    text-decoration-line: none;
+    cursor: pointer;
+}
