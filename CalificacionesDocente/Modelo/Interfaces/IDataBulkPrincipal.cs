@@ -5,6 +5,6 @@ namespace Modelo.Interfaces
 {
     public interface IDataBulkPrincipal
     {
-        int BulkDatos(IEnumerable<CargaTemporal> entidades);
+        int BulkDatos(IEnumerable<Evaluacionemporal> entidades);
     }
 }

@@ -4,10 +4,9 @@
     {
         public int Id { get; set; }
         public int Fase { get; set; }
-        public int CalificacionBase { get; set; }
+        public decimal CalificacionBase { get; set; }
         public int Item { get; set; }
-        public int Descripcion { get; set; }
-        public int PuntajeMax { get; set; }
-
+        public string Descripcion { get; set; }
+        public decimal PuntajeMax { get; set; }
     }
 }
