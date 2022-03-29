@@ -26,6 +26,8 @@ namespace Modelo.Interfaces
         public int ActualizarCalificacion(Calificacion calificacion);
 
         public List<Evaluacion> UltimasEvaluaciones();
+
+        public List<Evaluacion> EvaluacionesRestantes();
         public List<Evaluacion> ConsultaEvaluaciones(/*TODO: Definir parametros*/);
     }
 }

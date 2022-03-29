@@ -2,6 +2,9 @@
 
 namespace Modelo.Modelos
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Calificacion : CamposControlCrea, CamposControlEdita
     {
         public int Id { get; set; }
