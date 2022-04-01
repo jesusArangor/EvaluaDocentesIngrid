@@ -30,9 +30,11 @@ namespace Datos
                 using (var connection = new SqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Facultad>("SELECT  " +
+                    var model = connection.Query<Facultad>("SELECT fac_id As Id, " +
+                            "fac_codigo As Codigo, " +
+                            "fac_nombre As Nombre " +
                             " FROM califica.facultad " +
-                            " WHERE fac_id = @id; ",p).FirstOrDefault();
+                            " WHERE fac_id = @id; ", p).FirstOrDefault();
                     connection.Close();
                     return model;
                 }
@@ -45,7 +47,23 @@ namespace Datos
 
         public IEnumerable<Facultad> Obtener()
         {
-            
+            try
+            {
+                using (var connection = new SqlConnection(sqlConnectionString))
+                {
+                    connection.Open();
+                    var model = connection.Query<Facultad>("SELECT fac_id As Id, " +
+                            "fac_codigo As Codigo," +
+                            "fac_nombre As Nombre " +
+                            " FROM califica.facultad ").ToList();
+                    connection.Close();
+                    return model;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
