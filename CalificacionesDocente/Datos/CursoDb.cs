@@ -34,7 +34,7 @@ namespace Datos
                                   ", cur_nombre as Nombre " +
                                   ", cur_semestre as Semestre " +
                             " FROM califica.curso " +
-                            " WHERE cur_id = @id; ").FirstOrDefault();
+                            " WHERE cur_id = @id; ",p).FirstOrDefault();
                     connection.Close();
                     return model;
                 }

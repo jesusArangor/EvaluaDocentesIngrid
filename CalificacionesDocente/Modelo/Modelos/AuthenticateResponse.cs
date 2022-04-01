@@ -7,7 +7,6 @@
         public string Nombre { get; set; }
         public string Token { get; set; }
 
-
         public AuthenticateResponse(Usuario user, string token)
         {
             Id = user.Id;
