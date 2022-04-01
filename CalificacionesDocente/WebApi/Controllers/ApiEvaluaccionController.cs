@@ -9,7 +9,7 @@ namespace WebApi.Controllers
     /// 
     /// </summary>
     [ApiController]
-    [Route("Api/Evaluacion/{}")]
+    [Route("Api/Evaluacion")]
     public class ApiEvaluaccionController : Controller, IApi
     {
         /// <summary>

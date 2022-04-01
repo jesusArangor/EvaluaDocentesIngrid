@@ -17,7 +17,7 @@ namespace WebApi.Controllers
             _userService = userService;
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("Authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
             var response = _userService.Authenticate(model);
