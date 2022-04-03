@@ -13,6 +13,7 @@ namespace WebApi.Controllers
             this.dataCalificacion = dataCalificacion;
         }
 
+        [NonAction]
         public ActionResult Evaluacion()
         {
             var lista = dataCalificacion.Obtener(1);
