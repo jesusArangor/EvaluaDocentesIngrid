@@ -12,110 +12,122 @@ namespace WebApi.Controllers
     [Route("Api/Evaluacion")]
     public class ApiEvaluaccionController : Controller, IApi
     {
+        public IActionResult CargaDocente()
+        {
+            return Ok();
+        }
+
+        public IActionResult CargaEvaluacion()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult ConfirmarCargaDocente(int id, bool aprobacion)
+        {
+
+            return Ok();
+        }
+
+        public IActionResult ConfirmarCargaEvaluacion(int id, bool aprobacion)
+        {
+
+            return Ok();
+        }
+
+        public IActionResult ConsultaEvaluaciones()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Cursos(int id)
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Docentes()
+        {
+
+            return Ok(); 
+        }
+
+        public IActionResult Docentes(string documento, int semestre, int anio)
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Evaluacion(int id)
+        {
+
+            return Ok();
+        }
+
+        public IActionResult EvaluacionesRestantes()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Facultades()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Formatos()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Programas()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult Sedes()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult UltimasEvaluaciones()
+        {
+
+            return Ok();
+        }
+
+        public IActionResult VistaCargaDocente(int id)
+        {
+
+            return Ok();
+        }
+
+        public IActionResult VistaCargaEvaluacion(int id)
+        {
+
+            return Ok();
+        }
+
         /// <summary>
         /// Metodo para calificar cada nota de la evaluación
         /// </summary>
         /// <param name="calificacion">Entidad con el contenido de la calificacion individual</param>
         /// <returns>Estado</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public int ActualizarCalificacion(Calificacion calificacion)
+        IActionResult IApi.ActualizarCalificacion(Calificacion calificacion)
         {
-            throw new System.NotImplementedException();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public List<Calificacion> Calificacion(int id)
-        {
-            throw new System.NotImplementedException();
+
+            return Ok();
         }
 
-        public int CargaDocente()
+        IActionResult IApi.Calificacion(int id)
         {
-            throw new System.NotImplementedException();
-        }
 
-        public int CargaEvaluacion()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int ConfirmarCargaDocente(int id, bool aprobacion)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int ConfirmarCargaEvaluacion(int id, bool aprobacion)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Evaluacion> ConsultaEvaluaciones()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Curso> Cursos(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Docente> Docentes()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Docente> Docentes(string documento, int semestre, int anio)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Evaluacion Evaluacion(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Evaluacion> EvaluacionesRestantes()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Facultad> Facultades()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Formato> Formatos()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Programa> Programas()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Sede> Sedes()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Evaluacion> UltimasEvaluaciones()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public CargaDocente VistaCargaDocente(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public CargaEvaluacion VistaCargaEvaluacion(int id)
-        {
-            throw new System.NotImplementedException();
+            return Ok();
         }
     }
 }

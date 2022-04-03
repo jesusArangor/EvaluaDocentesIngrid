@@ -14,7 +14,7 @@ namespace Datos
     {
         private string sqlConnectionString;
 
-        public CursoDb(IConfigurationRoot configuration)
+        public CursoDb(IConfiguration configuration)
         {
             sqlConnectionString = configuration.GetConnectionString("DapperConnection");
         }
