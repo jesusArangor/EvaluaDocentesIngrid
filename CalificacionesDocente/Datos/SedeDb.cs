@@ -5,56 +5,57 @@ using Modelo.Modelos;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace Datos
 {
-    public class ProgramaDb : IDataReader<Programa, int>
+    public class SedeDb : IDataReader<Sede, int>
     {
         private string sqlConnectionString;
 
-        public ProgramaDb(IConfiguration configuration)
+        public SedeDb(IConfiguration configuration)
         {
             sqlConnectionString = configuration.GetConnectionString("DapperConnection");
         }
 
-        public Programa Obtener(int id)
+        public Sede Obtener(int id)
         {
             try
             {
-                var p= new DynamicParameters();
+                var p = new DynamicParameters();
+                p.Add("@Id", id, dbType: DbType.Int32);
+
                 using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Programa>("SELECT prog_id As Id, " +
-                            "prog_codigo As Codigo, " +
-                            "prog_nombre As Nombre " +
-                            " FROM califica.programa " +
-                            " WHERE prog_id = @id; ", p).FirstOrDefault();
+                    var model = connection.Query<Sede>("SELECT sed_id as Id " +
+                                  ", sed_codigo as Codigo " +
+                                  ", sed_nombre as Nombre " +
+                            " FROM sede " +
+                            " WHERE sed_id = @id; ", p).FirstOrDefault();
                     connection.Close();
                     return model;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return null;
             }
         }
 
-        public IEnumerable<Programa> Obtener()
+        public IEnumerable<Sede> Obtener()
         {
             try
             {
                 using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Programa>("SELECT prog_id As Id, " +
-                            "prog_codigo As Codigo, " +
-                            "prog_nombre As Nombre " +
-                            " FROM califica.programa ").ToList();
+                    var model = connection.Query<Sede>("SELECT sed_id as Id " +
+                                  ", sed_codigo as Codigo " +
+                                  ", sed_nombre as Nombre " +
+                            " FROM sede ").ToList();
                     connection.Close();
                     return model;
                 }

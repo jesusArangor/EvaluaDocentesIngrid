@@ -8,20 +8,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace Datos
 {
-    public class FacultadDb : IDataReader<Facultad, int>
+    public class FormatoDb : IDataReader<Formato, int>
     {
         private string sqlConnectionString;
 
-        public FacultadDb(IConfiguration configuration)
+        public FormatoDb(IConfiguration configuration)
         {
             sqlConnectionString = configuration.GetConnectionString("DapperConnection");
-        }        
+        }
 
-        public Facultad Obtener(int id)
+        public Formato Obtener(int id)
         {
             try
             {
@@ -31,11 +30,14 @@ namespace Datos
                 using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Facultad>("SELECT fac_id As Id, " +
-                            "fac_codigo As Codigo, " +
-                            "fac_nombre As Nombre " +
-                            " FROM califica.facultad " +
-                            " WHERE fac_id = @id; ", p).FirstOrDefault();
+                    var model = connection.Query<Formato>("SELECT for_id as Id " +   
+                                  ", for_item as Item " +
+                                  ", for_fase as Fase " +
+                                  ", for_calif_fase as CalificacionBase " +
+                                  ", for_puntaje_max as PuntajeMax " +
+                                  ", for_descripcion as Descripcion " +
+                            " FROM califica.formato " +
+                            " WHERE cur_id = @id; ", p).FirstOrDefault();
                     connection.Close();
                     return model;
                 }
@@ -46,17 +48,20 @@ namespace Datos
             }
         }
 
-        public IEnumerable<Facultad> Obtener()
+        public IEnumerable<Formato> Obtener()
         {
             try
             {
                 using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Facultad>("SELECT fac_id As Id, " +
-                            "fac_codigo As Codigo," +
-                            "fac_nombre As Nombre " +
-                            " FROM califica.facultad ").ToList();
+                    var model = connection.Query<Formato>("SELECT for_id as Id " +   
+                                  ", for_item as Item " +
+                                  ", for_fase as Fase " +
+                                  ", for_calif_fase as CalificacionBase " +
+                                  ", for_puntaje_max as PuntajeMax " +
+                                  ", for_descripcion as Descripcion " +
+                            " FROM califica.formato ").ToList();
                     connection.Close();
                     return model;
                 }
