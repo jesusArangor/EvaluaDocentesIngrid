@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Modelo.Interfaces;
 using Modelo.Modelos;
+using System;
 using System.Collections.Generic;
 
 namespace WebApi.Controllers
@@ -12,6 +13,22 @@ namespace WebApi.Controllers
     [Route("Api/Evaluacion")]
     public class ApiEvaluaccionController : Controller, IApi
     {
+        private readonly IDataReader<Facultad, int> facultadDb;
+        private readonly IDataReader<Formato, int> formatoDb;
+        private readonly IDataReader<Programa, int> programaDb;
+        private readonly IDataReader<Sede, int> sedeDb;
+        private readonly IDataReader<Curso, int> cursoDb;
+
+        public ApiEvaluaccionController(IDataReader<Facultad,int> facultadDb , IDataReader<Formato, int> formatoDb, 
+               IDataReader<Programa, int> programaDb, IDataReader<Sede, int> sedeDb, IDataReader<Curso, int> cursoDb)
+        {
+            this.facultadDb = facultadDb;
+            this.formatoDb = formatoDb;
+            this.programaDb = programaDb;
+            this.sedeDb = sedeDb;
+            this.cursoDb = cursoDb;
+        }
+
         [HttpPost("CargaDocente")]
         public IActionResult CargaDocente()
         {
@@ -49,8 +66,17 @@ namespace WebApi.Controllers
         [HttpGet("Cursos/{id}")]
         public IActionResult Cursos(int id)
         {
-
-            return Ok();
+            try
+            {
+                var lista = cursoDb.Obtener();
+                var respuesta = new StatusResponse { Success = true, Content = lista };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }
         }
 
         [HttpGet("Docentes")]
@@ -84,29 +110,65 @@ namespace WebApi.Controllers
         [HttpGet("Facultades")]
         public IActionResult Facultades()
         {
-
-            return Ok();
+            try
+            {
+                var lista = facultadDb.Obtener();
+                var respuesta = new StatusResponse { Success = true, Content = lista };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }
         }
 
         [HttpGet("Formatos")]
         public IActionResult Formatos()
         {
-
-            return Ok();
+            try
+            {
+                var lista = formatoDb.Obtener();
+                var respuesta = new StatusResponse { Success = true, Content = lista };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }
         }
 
         [HttpGet("Programas")]
         public IActionResult Programas()
         {
-
-            return Ok();
+            try
+            {
+                var lista = programaDb.Obtener();
+                var respuesta = new StatusResponse { Success = true, Content = lista };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }
         }
 
         [HttpGet("Sedes")]
         public IActionResult Sedes()
         {
-
-            return Ok();
+            try
+            {
+                var lista = sedeDb.Obtener();
+                var respuesta = new StatusResponse { Success = true, Content = lista };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }
         }
 
         [HttpGet("UltimasEvaluaciones")]

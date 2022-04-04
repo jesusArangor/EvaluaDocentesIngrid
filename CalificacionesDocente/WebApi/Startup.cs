@@ -37,6 +37,14 @@ namespace WebApi
             // configure DI for application services
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IDataReader<Curso, int>, CursoDb>();
+
+            services.AddScoped<IDataReader<Facultad, int>, FacultadDb>();
+            services.AddScoped<IDataReader<Formato, int>, FormatoDb>();
+            services.AddScoped<IDataReader<Programa, int>, ProgramaDb>();
+            services.AddScoped<IDataReader<Sede, int>, SedeDb>();
+           ;
+
+
             services.AddSingleton(_ => Configuration);
             AddSwagger(services);
             services.AddControllers();
