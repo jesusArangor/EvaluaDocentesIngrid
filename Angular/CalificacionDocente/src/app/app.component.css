@@ -12,15 +12,15 @@ h1{
 }
 .docentes{
     font-weight: 700;
-    margin: 5mm auto;
+    margin: 3mm;
     
 }
 .cursos{
     font-weight: 700;
-    margin:5mm auto;
+    margin: 3mm;
 }
 tr:nth-of-type(1) > th{
-    background: rgba(33, 76, 216, 0.521);
+    background: rgba(223, 226, 14, 0.89);
 }
 .centrado{
     text-align: center;
