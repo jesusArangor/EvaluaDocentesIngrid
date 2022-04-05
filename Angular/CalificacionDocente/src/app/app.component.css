@@ -92,7 +92,7 @@ margin:5mm auto;
         height: 0;
         left: 0;
         bottom: 0;
-        background-image: linear-gradient(to right, rgba(11, 240, 41, 0.932),rgb(60, 240, 60));
+        background-image: linear-gradient(to right, rgb(241, 245, 23),rgb(228, 243, 17));
         transition: all .25s;
         z-index: -1;    
     }
@@ -126,7 +126,7 @@ margin:5mm auto;
         height: 0;
         left: 0;
         bottom: 0;
-        background-image: linear-gradient(to right, rgba(11, 240, 41, 0.932),rgb(60, 240, 60));
+        background-image: linear-gradient(to right, rgba(241, 245, 23),rgb(228, 243, 17));
         transition: all .25s;
         z-index: -1;    
     }
