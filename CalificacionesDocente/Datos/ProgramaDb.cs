@@ -4,7 +4,6 @@ using Modelo.Interfaces;
 using Modelo.Modelos;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -25,7 +24,6 @@ namespace Datos
             try
             {
                 var p= new DynamicParameters();
-                p.Add("@Id", id, dbType: DbType.Int32);
                 using (var connection = new SqlConnection(sqlConnectionString))
                 {
                     connection.Open();
