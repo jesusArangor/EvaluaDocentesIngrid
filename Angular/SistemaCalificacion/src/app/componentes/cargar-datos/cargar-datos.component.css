@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{margin: 0 ; padding: 0; box-sizing: border-box;}
+
+body{
+    background-color: white;
+}
+
+header{
+    width: auto;
+    overflow: hidden;
+    background: #111827;
+    margin: 15px;
+}
+h1{
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    text-align: center;
+}
+ 
+ div{
+     text-align: center;
+ }
+
+header .logo{
+ color: aliceblue;
+ font-size: 30px;
+ line-height: 30px;   
+}
+
+hr {
+    height: 2px;
+    background-color: aliceblue;
+  }
+
+  /* alerta */
+.alerta{
+    display: none;
+    width: 200px;
+    /* background: gray; */
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    background: #fff;
+    padding: 1em;
+}
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+p {
+    font-family: Lato;
+  }
+  .fileinput-button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.fileinput-button input{
+    position:absolute;
+    right: 0px;
+    top: 0px;
+    opacity: 0;
+    font-size: 200px;
+}
+  
+
+
+    form 
+    {
+    height: 100;;
+    padding: 1em;
+    border: 1px solid #111827;
+    border-radius: .70em;
+    margin: 3em;
+    box-shadow: .25em .25em 0 #111827;
+    }
+
+    img{
+        margin: 20;
+        margin-top: 5;
+        
+    }

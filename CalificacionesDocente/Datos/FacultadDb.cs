@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Modelo.Interfaces;
 using Modelo.Modelos;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace Datos
     {
         private string sqlConnectionString;
 
-        public FacultadDb(IConfigurationRoot configuration)
+        public FacultadDb(IConfiguration configuration)
         {
             sqlConnectionString = configuration.GetConnectionString("DapperConnection");
         }        
@@ -27,7 +28,7 @@ namespace Datos
                 var p = new DynamicParameters();
                 p.Add("@Id", id, dbType: DbType.Int32);
 
-                using (var connection = new SqlConnection(sqlConnectionString))
+                using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
                     var model = connection.Query<Facultad>("SELECT fac_id As Id, " +
@@ -49,7 +50,7 @@ namespace Datos
         {
             try
             {
-                using (var connection = new SqlConnection(sqlConnectionString))
+                using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
                     var model = connection.Query<Facultad>("SELECT fac_id As Id, " +

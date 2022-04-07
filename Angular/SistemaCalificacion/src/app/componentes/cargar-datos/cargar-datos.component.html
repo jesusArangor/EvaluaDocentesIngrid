@@ -1,0 +1,52 @@
+<title>Cargar Docente </title>
+  <link rel="stylesheet" href="cargar-datos.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+  <style type="text/css"> 
+  body
+  {
+		background-size: cover; 
+		background-position: center center;
+		background-attachment: fixed;
+	}
+	</style>
+<body>
+	<header>
+    <div class="wrapper">
+        <div class="logo">
+        <h1>CARGAR DATOS</h1> 
+        </div>
+        <hr>
+    </div>
+  </header>
+  <div>
+    <span class="btn btn-success fileinput-button">
+       <input type="file" >
+    </span>
+</div>
+
+      <br>
+  <div>
+      <script type="text/javascript">
+        function ConfirmDemo() {
+        //Ingresamos un mensaje a mostrar
+        var mensaje = confirm("Se Han Cargado Los Datos Del Docente ¿Deseas Continuar?");
+        //Detectamos si el usuario acepto el mensaje
+        if (mensaje) {
+        alert("¡Docente Guardado!");
+        }
+        //Detectamos si el usuario denegó el mensaje
+        else {
+        alert("¡Haz Denegado Los Datos Del Docente!");
+        }
+        }
+        </script>
+        
+          <span>
+            <input [ type="submit" class="btn btn-primary" value="GUARDAR" onclick="ConfirmDemo()" />
+          </span>
+
+  </div>
+  <img src="logo.png" style="align-items: left;"> 
+ 
+</body>

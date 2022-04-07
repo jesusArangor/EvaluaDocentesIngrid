@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Modelo.Interfaces;
 using Modelo.Modelos;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,7 +15,7 @@ namespace Datos
     {
         private string sqlConnectionString;
 
-        public ProgramaDb(IConfigurationRoot configuration)
+        public ProgramaDb(IConfiguration configuration)
         {
             sqlConnectionString = configuration.GetConnectionString("DapperConnection");
         }
@@ -24,7 +25,7 @@ namespace Datos
             try
             {
                 var p= new DynamicParameters();
-                using (var connection = new SqlConnection(sqlConnectionString))
+                using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
                     var model = connection.Query<Programa>("SELECT prog_id As Id, " +
@@ -47,7 +48,7 @@ namespace Datos
         {
             try
             {
-                using (var connection = new SqlConnection(sqlConnectionString))
+                using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
                     var model = connection.Query<Programa>("SELECT prog_id As Id, " +
