@@ -1,24 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{margin: 0 ; padding: 0; box-sizing: border-box;}
+
+body{
+    background-color: white;
+}
+
 header{
     width: auto;
     overflow: hidden;
     background: #111827;
     margin: 15px;
 }
-
 h1{
     font-family: "Trebuchet MS", Verdana, sans-serif;
     text-align: center;
-    font-weight: 700;
-    font-size: 2em;
-    margin: 10mm;
-    text-align: center;
-    
 }
+ 
+ div{
+     text-align: center;
+ }
+
 header .logo{
-    color: aliceblue;
-    font-size: 30px;
-    line-height: 30px;   
-   }
+ color: aliceblue;
+ font-size: 15px;
+ line-height: 100px;   
+}
+
+hr {
+    height: 2px;
+    background-color: aliceblue;
+  }
 .despliegue{
     
         text-align: center;
