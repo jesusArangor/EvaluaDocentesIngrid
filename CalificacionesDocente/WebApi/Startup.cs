@@ -90,14 +90,14 @@ namespace WebApi
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"Foo {groupName}",
+                    Title = $"Evalua Docentes {groupName}",
                     Version = groupName,
-                    Description = "Foo API",
+                    Description = "Evalua Docentes API",
                     Contact = new OpenApiContact
                     {
-                        Name = "Foo Company",
+                        Name = "Evalua Docentes",
                         Email = string.Empty,
-                        Url = new Uri("https://foo.com/"),
+                        Url = new Uri("https://github.com/jesusArangor/EvaluaDocentesIngrid"),
                     }
                 });
             });
