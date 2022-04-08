@@ -7,6 +7,7 @@ body{
 
 header{
     width: auto;
+    height: 80;
     overflow: hidden;
     background: #111827;
     margin: 15px;
@@ -22,14 +23,14 @@ h1{
 
 header .logo{
  color: aliceblue;
- font-size: 15px;
- line-height: 100px;   
+ font-size: 20px;
+ line-height: 62px;   
 }
 
 hr {
     height: 2px;
     background-color: aliceblue;
-  }
+}
 .despliegue{
     
         text-align: center;
@@ -45,7 +46,7 @@ hr {
     margin: 3mm;
 }
 tr:nth-of-type(1) > th{
-    background: rgba(223, 226, 14, 0.89);
+    background: rgba(255, 255, 255, 0.89);
 }
 .centrado{
     text-align: center;
