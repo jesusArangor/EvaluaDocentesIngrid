@@ -17,7 +17,7 @@ namespace WebApi.Controllers
         private readonly IDataReader<Formato, int> formatoDb;
         private readonly IDataReader<Programa, int> programaDb;
         private readonly IDataReader<Sede, int> sedeDb;
-        private readonly IDataReader<Curso, int> cursoDb;
+        private readonly IDataReader<Curso, int> cursoDb; 
 
         public ApiEvaluaccionController(IDataReader<Facultad,int> facultadDb , IDataReader<Formato, int> formatoDb, 
                IDataReader<Programa, int> programaDb, IDataReader<Sede, int> sedeDb, IDataReader<Curso, int> cursoDb)
