@@ -10,6 +10,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { DatosDocenteComponent } from './componentes/datos-docente/datos-docente.component';
 import { CargarDatosComponent } from './componentes/cargar-datos/cargar-datos.component';
 import { ConsultarDocenteComponent } from './componentes/consultar-docente/consultar-docente.component';
+import { CalificarDocenteComponent } from './componentes/calificar-docente/calificar-docente.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ConsultarDocenteComponent } from './componentes/consultar-docente/consu
     HomeComponent,
     DatosDocenteComponent,
     CargarDatosComponent,
-    ConsultarDocenteComponent
+    ConsultarDocenteComponent,
+    CalificarDocenteComponent
     
   ],
   imports: [
