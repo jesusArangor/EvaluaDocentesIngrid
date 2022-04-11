@@ -13,22 +13,20 @@ namespace Servicios
 {
     public class UsuarioService : IUsuarioService
     {
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<Usuario> _users = new List<Usuario>
-    {
-    };
-
+        
         private readonly AppSettings _appSettings;
+        private readonly IUsuarioData usuarioData;
 
-        public UsuarioService(IOptions<AppSettings> appSettings)
+        public UsuarioService(IOptions<AppSettings> appSettings, IUsuarioData usuarioData) 
         {
             _appSettings = appSettings.Value;
+            this.usuarioData = usuarioData;
         }
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            var user = _users.SingleOrDefault(x => x.Correo == model.Username && x.Password == model.Password);
-
+            var user = usuarioData.Autenticar(model.Username, model.Password);
+          
             // return null if user not found
             if (user == null) return null;
 
@@ -40,12 +38,12 @@ namespace Servicios
 
         public IEnumerable<Usuario> GetAll()
         {
-            return _users;
+            return usuarioData.Obtener();
         }
 
         public Usuario GetById(int id)
         {
-            return _users.FirstOrDefault(x => x.Id == id);
+            return usuarioData.Obtener(id);
         }
 
         // helper methods

@@ -12,9 +12,6 @@ using Modelo.Interfaces;
 using Modelo.Modelos;
 using Servicios;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApi.Helpers;
 
 namespace WebApi
@@ -42,8 +39,8 @@ namespace WebApi
             services.AddScoped<IDataReader<Formato, int>, FormatoDb>();
             services.AddScoped<IDataReader<Programa, int>, ProgramaDb>();
             services.AddScoped<IDataReader<Sede, int>, SedeDb>();
-           ;
-
+            services.AddScoped<IDataReader<Usuario, int>, UsuarioDb>();
+            services.AddScoped<IUsuarioData, UsuarioDb>();
 
             services.AddSingleton(_ => Configuration);
             AddSwagger(services);
