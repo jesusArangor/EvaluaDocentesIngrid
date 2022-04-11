@@ -7,7 +7,7 @@ using WebApi.Helpers;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("Api/[controller]")]
+    [Route("Api/Users")]
     public class UsersController : ControllerBase
     {
         private IUsuarioService _userService;
@@ -16,8 +16,7 @@ namespace WebApi.Controllers
         {
             _userService = userService;
         }
-
-        [NonAction]
+                
         [HttpPost("Authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
