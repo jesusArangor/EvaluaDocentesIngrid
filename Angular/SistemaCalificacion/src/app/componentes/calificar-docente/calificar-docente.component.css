@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{margin: 0 ; padding: 0; box-sizing: border-box;}
+
+body{
+    background-color: white;
+}
+
+header{
+    width: auto;
+    height: 80;
+    overflow: hidden;
+    background: #111827;
+    margin: 15px;
+}
+h1{
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    text-align: center;
+}
+ 
+ div{
+     text-align: center;
+ }
+
+header .logo{
+ color: aliceblue;
+ font-size: 20px;
+ line-height: 62px;   
+}
+
+hr {
+    height: 2px;
+    background-color: aliceblue;
+}
+.despliegue{
+    
+        text-align: center;
+    
+}
+.docentes{
+    font-weight: 700;
+    margin: 3mm;
+    
+}
+.cursos{
+    font-weight: 700;
+    margin: 3mm;
+}
+tr:nth-of-type(1) > th{
+    background: rgba(255, 255, 255, 0.89);
+}
+.centrado{
+    text-align: center;
+    
+}
+.fase-inicial{
+margin:5mm auto; 
+
+
+}
+.fase-inicial  tr{
+    margin:none;
+}
+.fase-inicial td{
+    margin:none;
+    padding: 3px;
+    text-align: justify;
+} 
+.fase-inicial th{
+    font-weight: bold;
+    margin:none;
+    padding: 3px;
+    
+}
+
+
+.fase-final{
+    margin:auto; 
+    
+    }
+    .fase-final  tr{
+        margin:none;
+    }
+    .fase-final td{
+        margin:none;
+        padding: 3px;
+        text-align: justify;
+    } 
+    .fase-final th{
+        font-weight: bold;
+        margin:none;
+        padding: 3px;
+        
+    }
+    .botones{
+        display: flex;
+    }
+    .botonfn{
+       
+        font-weight: 700;
+        display : inline-block;
+        width: 150px;
+        height: 40px;      
+        outline: none;
+        border: 1px solid rgb(0,141,235);
+        border-radius: 6px;
+        color: rgb(7, 3, 223);
+        cursor: pointer;
+        margin: 5mm auto;
+        transition: all .25s;
+        z-index: 1;
+        position: relative;
+        text-transform: uppercase;
+    }
+    .botonfn::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0;
+        left: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, rgb(241, 245, 23),rgb(228, 243, 17));
+        transition: all .25s;
+        z-index: -1;    
+    }
+    .botonfn:hover{
+        border: 1px solid transparent;
+        color: rgb(246, 248, 244);
+    }
+    .botonfn:hover::before{
+        height: 100%;
+    }
+   .botonat{
+        font-weight: 700;
+        display : inline-block;
+        width: 150px;
+        height: 40px;       
+        outline: none;
+        border: 1px solid rgb(0,141,235);
+        border-radius: 6px;
+        color: rgb(7, 3, 223);
+        cursor: pointer;
+        margin: 2mm auto;
+        transition: all .25s;
+        z-index: 1;
+        position: relative;
+        text-transform: uppercase;
+    }
+    .botonat::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0;
+        left: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, rgba(241, 245, 23),rgb(228, 243, 17));
+        transition: all .25s;
+        z-index: -1;    
+    }
+    .botonat:hover{
+        border: 1px solid transparent;
+        color: rgb(246, 248, 244);
+    }
+    .botonat:hover::before{
+        height: 100%;
+    }
