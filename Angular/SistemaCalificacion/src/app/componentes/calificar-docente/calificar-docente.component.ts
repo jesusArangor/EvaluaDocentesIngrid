@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalificarDocenteComponent implements OnInit {
 
+  prueba:string="hola";
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  mostrar(){
+    this.prueba= "mundo"
+  };
 }

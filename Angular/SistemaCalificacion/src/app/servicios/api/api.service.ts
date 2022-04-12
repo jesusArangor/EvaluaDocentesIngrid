@@ -3,8 +3,6 @@ import { LoginI} from '../../modelos/login.interface';
 import { ResponseI } from '../../modelos/response.interface';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { url } from 'inspector';
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +10,7 @@ import { url } from 'inspector';
 export class ApiService {
 
   url: string = "http://Localhost:31623";
-  urlsede:string = url+"/Api/Evaluacion/Sedes"
+  urlsede:string = this. url+"/Api/Evaluacion/Sedes"
 
   constructor( private http: HttpClient) { }
 
