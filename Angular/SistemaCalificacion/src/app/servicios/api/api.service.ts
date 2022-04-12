@@ -3,6 +3,7 @@ import { LoginI} from '../../modelos/login.interface';
 import { ResponseI } from '../../modelos/response.interface';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { url } from 'inspector';
 
 
 @Injectable({
@@ -10,9 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  url: string = "http://Localhost:31623/Api/Users/Autenticate";
+  url: string = "http://Localhost:31623";
+  urlsede:string = url+"/Api/Evaluacion/Sedes"
 
   constructor( private http: HttpClient) { }
+
+ obtenersedes(){
+ 
+  return this.http.get(this.urlsede,{})
+
+}
 
   loginByEmail(form:LoginI):Observable<ResponseI>{
     let direccion = this.url;
