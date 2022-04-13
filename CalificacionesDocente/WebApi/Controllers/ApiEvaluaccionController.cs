@@ -17,16 +17,19 @@ namespace WebApi.Controllers
         private readonly IDataReader<Formato, int> formatoDb;
         private readonly IDataReader<Programa, int> programaDb;
         private readonly IDataReader<Sede, int> sedeDb;
-        private readonly IDataReader<Curso, int> cursoDb; 
+        private readonly IDataReader<Curso, int> cursoDb;
+        private readonly IEvaluacionData evalucionData;
 
-        public ApiEvaluaccionController(IDataReader<Facultad,int> facultadDb , IDataReader<Formato, int> formatoDb, 
-               IDataReader<Programa, int> programaDb, IDataReader<Sede, int> sedeDb, IDataReader<Curso, int> cursoDb)
+        public ApiEvaluaccionController(IDataReader<Facultad, int> facultadDb, IDataReader<Formato, int> formatoDb,
+               IDataReader<Programa, int> programaDb, IDataReader<Sede, int> sedeDb, IDataReader<Curso, int> cursoDb,
+               IEvaluacionData evalucionData)
         {
             this.facultadDb = facultadDb;
             this.formatoDb = formatoDb;
             this.programaDb = programaDb;
             this.sedeDb = sedeDb;
             this.cursoDb = cursoDb;
+            this.evalucionData = evalucionData;
         }
 
         [HttpPost("CargaDocente")]
@@ -60,7 +63,7 @@ namespace WebApi.Controllers
         public IActionResult ConsultaEvaluaciones()
         {
 
-            return Ok(new { estado=true});
+            return Ok(new { estado = true });
         }
 
         [HttpGet("Cursos/{id}")]
@@ -96,8 +99,17 @@ namespace WebApi.Controllers
         [HttpGet("Evaluacion/{id}")]
         public IActionResult Evaluacion(int id)
         {
-
-            return Ok();
+            try
+            {
+                var data = evalucionData.Obtener(id);
+                var respuesta = new StatusResponse { Success = true, Content = data };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }
         }
 
         [HttpGet("EvaluacionesRestantes")]
@@ -209,6 +221,21 @@ namespace WebApi.Controllers
         {
 
             return Ok();
+        }
+
+        public IActionResult EvaluacionDocente(int idDocente, int idCurso)
+        {
+            try
+            {
+                var data = evalucionData.evaluaciones(idDocente, idCurso);             
+                var respuesta = new StatusResponse { Success = true, Content = data };
+                return Ok(respuesta);
+            }
+            catch (Exception ex)
+            {
+                var respuesta = new StatusResponse { Success = false, Message = ex.Message };
+                return BadRequest(respuesta);
+            }           
         }
     }
 }

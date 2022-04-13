@@ -23,6 +23,7 @@ namespace Modelo.Interfaces
         public IActionResult VistaCargaDocente(int id);
         public IActionResult ConfirmarCargaDocente(int id, bool aprobacion);
         public IActionResult Evaluacion(int id);
+        public IActionResult EvaluacionDocente(int idDocente,int idCurso);
         public IActionResult Calificacion(int id);
         public IActionResult ActualizarCalificacion(Calificacion calificacion);
         public IActionResult UltimasEvaluaciones();

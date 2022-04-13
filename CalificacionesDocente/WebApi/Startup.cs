@@ -44,6 +44,8 @@ namespace WebApi
             services.AddScoped<IDataReader<Sede, int>, SedeDb>();
             services.AddScoped<IDataReader<Usuario, int>, UsuarioDb>();
             services.AddScoped<IUsuarioData, UsuarioDb>();
+            services.AddScoped<IDataReader<Evaluacion, int>, EvaluancionDb>();
+            services.AddScoped<IEvaluacionData, EvaluancionDb>();
 
             services.AddSingleton(_ => Configuration);
             AddSwagger(services);
