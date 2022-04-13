@@ -1,1 +1,167 @@
-<p>calificar-docente works!</p>
+<link rel="stylesheet" href="calificar-docente.component.css">
+<style type="text/css"> 
+    body
+    {
+          background-size: cover; 
+          background-position: center center;
+          background-attachment: fixed;
+      }
+      </style>
+  <body>
+      <header>
+      <div class="wrapper">
+          <div class="logo">
+          <h1>CALIFICAR DOCENTE</h1> 
+          </div>
+          <hr>
+      </div>
+    </header>
+    <div>
+    <label class="docentes">DOCENTE</label>
+    <select name="docente" >
+        <option disabled selected="selecciona_un_docente">Selecciona un Docente</option>
+        <option value="Ingrid">Ingrid</option>
+        <option value="Francisco">Francisco</option>
+        <option value="Mauricio">Mauricio</option>
+        <option value="Leonardo">Leonardo</option>
+    </select>
+   
+    <label class="cursos">CURSOS DEL DOCENTE</label>
+    <select name="cursos_del_docente" >
+     <option disabled selected="selecciona_un_curso">Selecciona un Curso</option>
+        <option value="Linea de Enfasis">Linea de Enfasis I</option>
+        <option value="Estadistica">Estadistica/option>
+        <option value="Programacion">Programacion</option>
+        <option value="Gestion de Proyectos">Gestion de Proyectos</option>
+    </select>
+   
+   </div>
+   <table class="fase-inicial">
+   
+     <tr>
+         <th>N°</th>
+         <th >FASE INICIAL 50%  </th>
+         <th>PUNTAJE MAXIMO </th>
+         <th>VALOR</th>
+         <th>OBSERVACIONES</th>
+     </tr>
+     <tr>
+         <th>1</th>
+         <td >El curso se enmarca en la plantilla institucional  </td>
+         <th>10</th>
+         <th><input type="number" name="valor1" ></th>
+         <td> 
+             <input type="text" name="obeservacion1"  >
+             
+        </td>
+     </tr>
+     <tr>
+         <th>2</th>
+         <td >Publica un anuncio de Bienvenida al curso con la siguiente  </td>
+         <th>10</th>
+         <th><input type="number" name="valor2" ></th>
+         <td> 
+             <input type="text" name="observacion2" >
+          
+     </td>
+     </tr>
+     <tr>
+         <th>3</th>
+         <td >Escanea diligencia el formato DO-FR 66 de  </td>
+         <th>10</th>
+         <th><input type="number" name="valor3" ></th>
+         <td> 
+             <input type="text" name="observacion3" >
+         </td>
+     </tr>
+     <tr>
+         <th>4</th>
+         <td >El vinculo perfil del tutor se encuentra disponible para  </td>
+         <th>10</th>
+         <th><input type="number" name="valor4" ></th>
+         <td>
+             <input type="text" name="observacion4" >
+         </td>
+     </tr>
+     <tr>
+         <th>5</th>
+         <td >El vinculo de vision general del curso donde se evidencie la  </td>
+         <th>10</th>
+         <th><input type="number" name="valor5" ></th>
+         <td>
+             <input type="text" name="observacion5">
+         </td>
+     </tr>
+     <tr>
+         <th>6</th>
+         <td >Publica los recursos de aprendizaje (Modulo,)  </td>
+         <th>10</th>
+         <th><input type="number" name="valor6" ></th>
+         <td> 
+             <input type="text" name="observacion6" >
+         </td>
+     </tr>
+     <tr>
+         <th>7</th>
+         <td >El docente utiliza algunas de las herramientas del aula  </td>
+         <th>10</th>
+         <th><input type="number" name="7" ></th>
+         <td> 
+             <input type="text" name="observacion7" >
+         </td>
+     </tr>
+     <tr>
+         <td></td>
+        <th>TOTAL</th>
+         <th>70</th>
+         <th>70</th>
+         <th>100,0%</th>
+     </tr>
+   </table>
+             
+   
+   <table class="fase-final">
+   
+     <tr>
+         <th>N°</th>
+         <th >FASE FINAL 50%  </th>
+         <th>PUNTAJE MAXIMO </th>
+         <th>VALOR</th>
+         <th>OBSERVACIONES</th>
+     </tr>
+     <tr>
+         <th>8</th>
+         <td >El curso se enmarca en la plantilla institucional  </td>
+         <th>10</th>
+         <th><input type="number" name="valor8" ></th>
+         <td> 
+             <input type="text"  name="observacion8">
+             
+        </td>
+     </tr>
+     <tr>
+         <th>9</th>
+         <td >Publica un anuncio de Bienvenida al curso con la siguiente  </td>
+         <th>20</th>
+         <th><input type="number" name="valor9" ></th>
+         <td> 
+             <input type="text" name="observacion9" >
+          
+     </td>
+     </tr>
+     
+        <tr>
+           <td></td>
+            <th>TOTAL</th>
+             <th>30</th>
+              <th>30</th>
+              <th>100,0%</th>
+        </tr>
+     </table>
+           <div class="botones">
+                   <button class="botonat">ATRAS</button>
+                   <button class="botonfn" (click)="mostrar()">FINALIZAR FASES</button>
+                  {{prueba}}
+                 
+           </div>
+</body>
