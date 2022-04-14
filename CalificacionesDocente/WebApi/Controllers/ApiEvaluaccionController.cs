@@ -223,6 +223,7 @@ namespace WebApi.Controllers
             return Ok();
         }
 
+        [HttpGet("EvaluacionDocente")]
         public IActionResult EvaluacionDocente(int idDocente, int idCurso)
         {
             try
