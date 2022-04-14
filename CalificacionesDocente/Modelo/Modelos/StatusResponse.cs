@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Modelo.Modelos
 {
-    public class StatusResponse
+    public class StatusResponse<T>
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public object Content { get; set; }
+        public T Content { get; set; }
     }
 }

@@ -8,26 +8,45 @@ namespace Modelo.Interfaces
 {
     public interface IApi
     {
-        public IActionResult Sedes();
-        public IActionResult Docentes();
-        public IActionResult Docentes(string documento, int semestre, int anio);
-        public IActionResult Cursos(int id);
-        public IActionResult Facultades();
-        public IActionResult Programas();
-        public IActionResult Formatos();
+        public ActionResult<StatusResponse<bool>> ActualizarCalificacion(Calificacion calificacion);
+
+        public ActionResult<StatusResponse<IEnumerable<Calificacion>>> Calificacion(int id);
+
+        public ActionResult<StatusResponse<RespuestaCargaDocente>> CargaDocente();
+
         // El file se captura desde request; regresa el id de la carga
-        public IActionResult CargaEvaluacion();
-        public IActionResult VistaCargaEvaluacion(int id);
-        public IActionResult ConfirmarCargaEvaluacion(int id, bool aprobacion);
-        public IActionResult CargaDocente();
-        public IActionResult VistaCargaDocente(int id);
-        public IActionResult ConfirmarCargaDocente(int id, bool aprobacion);
-        public IActionResult Evaluacion(int id);
-        public IActionResult EvaluacionDocente(int idDocente,int idCurso);
-        public IActionResult Calificacion(int id);
-        public IActionResult ActualizarCalificacion(Calificacion calificacion);
-        public IActionResult UltimasEvaluaciones();
-        public IActionResult EvaluacionesRestantes();
-        public IActionResult ConsultaEvaluaciones(/*TODO: Definir parametros*/);
+        public ActionResult<StatusResponse<RespuestaCargaEvaluacion>> CargaEvaluacion();
+
+        public ActionResult<StatusResponse<bool>> ConfirmarCargaDocente(int id, bool aprobacion);
+
+        public ActionResult<StatusResponse<bool>> ConfirmarCargaEvaluacion(int id, bool aprobacion);
+
+        public ActionResult<StatusResponse<IEnumerable<Evaluacion>>> ConsultaEvaluaciones(/*TODO: Definir parametros*/);
+
+        public ActionResult<StatusResponse<IEnumerable<Curso>>> Cursos(int id);
+
+        public ActionResult<StatusResponse<IEnumerable<Docente>>> Docentes();
+
+        public ActionResult<StatusResponse<IEnumerable<Docente>>> Docentes(string documento, int semestre, int anio);
+
+        public ActionResult<StatusResponse<Evaluacion>> Evaluacion(int id);
+
+        public ActionResult<StatusResponse<IEnumerable<Evaluacion>>> EvaluacionDocente(int idDocente, int idCurso);
+
+        public ActionResult<StatusResponse<IEnumerable<Evaluacion>>> EvaluacionesRestantes();
+
+        public ActionResult<StatusResponse<IEnumerable<Facultad>>> Facultades();
+
+        public ActionResult<StatusResponse<IEnumerable<Formato>>> Formatos();
+
+        public ActionResult<StatusResponse<IEnumerable<Programa>>> Programas();
+
+        public ActionResult<StatusResponse<IEnumerable<Sede>>> Sedes();
+
+        public ActionResult<StatusResponse<IEnumerable<Evaluacion>>> UltimasEvaluaciones();
+
+        public ActionResult<StatusResponse<IEnumerable<DocenteTemporal>>> VistaCargaDocente(int id);
+
+        public ActionResult<StatusResponse<IEnumerable<EvaluacionTemporal>>> VistaCargaEvaluacion(int id);
     }
 }

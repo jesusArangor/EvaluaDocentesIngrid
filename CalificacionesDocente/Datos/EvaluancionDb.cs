@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 
 namespace Datos
@@ -23,7 +24,17 @@ namespace Datos
            // this.logger = logger;
         }
 
-        public IEnumerable<Evaluacion> evaluaciones(int idDocente, int idCurso)
+        public int AprobarCarga(int idCarga)
+        {
+            return 0;
+        }
+
+        public List<EvaluacionTemporal> CargaTemporales(Stream datos, string extension, ref int idCarga)
+        {
+            return null;
+        }
+
+        public IEnumerable<Evaluacion> Evaluaciones(int idDocente, int idCurso)
         {
             try
             {

@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Modelo.Interfaces;
 using Modelo.Modelos;
+using Swashbuckle.AspNetCore.Annotations;
 using WebApi.Helpers;
 
 namespace WebApi.Controllers
 {
+    [SwaggerTag(description: "Web API para autenticación de Usuarios.")]
     [ApiController]
     [Route("Api/Users")]
     public class UsersController : ControllerBase
