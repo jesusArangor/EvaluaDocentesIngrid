@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Modelo.Interfaces;
 using Modelo.Modelos;
 using MySql.Data.MySqlClient;
@@ -14,14 +15,13 @@ namespace Datos
     public class EvaluancionDb : IEvaluacionData
     {
         private string sqlConnectionString;
-       // private ILogger<EvaluancionDb> logger;
+        private ILogger<EvaluancionDb> logger;
 
-        public EvaluancionDb(IConfiguration configuration
-            //, ILogger<EvaluancionDb> logger
+        public EvaluancionDb(IConfiguration configuration, ILogger<EvaluancionDb> logger
             )
         {
             sqlConnectionString = configuration.GetConnectionString("DapperConnection");
-           // this.logger = logger;
+            this.logger = logger;
         }
 
         public int AprobarCarga(int idCarga)
@@ -45,20 +45,44 @@ namespace Datos
                 using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Evaluacion>("SELECT usu_id as Id " +
-                                  ", usu_correo as Correo " +
-                                  ", usu_nombre as Nombre " +
-                                  //", usu_pass as Password " +
-                                  ", usu_salt as Salt " +
+                    var model = connection.Query<Evaluacion>("SELECT id_evalucion AS Id " +
+                                  ",cur_id AS CursoId" +
+                                  ",Nombre_Curso AS NombreCurso" +
+                                  ",sed_id AS Sedeid" +
+                                  ",Nombre_Sede AS NombreSede" +
+                                  ",fac_id AS FacultadId" +
+                                  ",Nombre_Facultad AS NombreFacultad" +
+                                  ",prog_id AS ProgramaId" +
+                                  ",Nombre_Programa AS NombrePrograma" +
+                                  ",eva_doc_id AS DocenteId" +
+                                  ",Nombre_Docente AS NombreDocente" +
+                                  ",Docu_Docente AS DocumentoDocente" +
+                                  ",Correo_Docente AS CorreoDocente" +
+                                  ",Tel_Docente AS TelefonoDocente" +
+                                  ",eva_care_id AS CargaEvaluacionId" +
+                                  ",eva_modulo AS Modulo" +
+                                  ",eva_curriculo AS Curriculo" +
+                                  ",eva_plan_aula AS PlanAula" +
+                                  ",eva_fecing AS FechaCrea" +
+                                  ",eva_fecmod AS FechaMod" +
+                                  ",eva_usu_mod_id AS UsuarioMod" +
+                                  ",Nombre_usu_modifica AS Nombreusumodifica" +
+                                  ",eva_usu_ing_id AS UsuarioCrea" +
+                                  ",Nombre_Usu_Ingresa AS NombreUsuIngresa" +
+                                  ",eva_estado AS Estado" +
+                                  ",Nombre_Archivo_Carga AS NombreArchivoCarga" +
+                                  ",Semestre_carga AS SemestreCarga" +
+                                  ",Anio_carga AS AnioCarga" +
                             " FROM V_evaluacion " +
-                            " WHERE usu_id = @idCurso; " +
-                            " AND  va2 = @idDoc", p).ToList();
+                            " WHERE cur_id = @idCurso; " +
+                            " AND eva_doc_id = @idDoc", p).ToList();
                     connection.Close();
                     return model;
                 }
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Error al acceder a la base de datos.");
                 return null;
             }
         }
@@ -73,26 +97,92 @@ namespace Datos
                 using (var connection = new MySqlConnection(sqlConnectionString))
                 {
                     connection.Open();
-                    var model = connection.Query<Evaluacion>("SELECT usu_id as Id " +
-                                  ", usu_correo as Correo " +
-                                  ", usu_nombre as Nombre " +
-                                  //", usu_pass as Password " +
-                                  ", usu_salt as Salt " +
+                    var model = connection.Query<Evaluacion>("SELECT id_evalucion AS Id " +
+                                  ",cur_id AS CursoId" +
+                                  ",Nombre_Curso AS NombreCurso" +
+                                  ",sed_id AS Sedeid" +
+                                  ",Nombre_Sede AS NombreSede" +
+                                  ",fac_id AS FacultadId" +
+                                  ",Nombre_Facultad AS NombreFacultad" +
+                                  ",prog_id AS ProgramaId" +
+                                  ",Nombre_Programa AS NombrePrograma" +
+                                  ",eva_doc_id AS DocenteId" +
+                                  ",Nombre_Docente AS NombreDocente" +
+                                  ",Docu_Docente AS DocumentoDocente" +
+                                  ",Correo_Docente AS CorreoDocente" +
+                                  ",Tel_Docente AS TelefonoDocente" +
+                                  ",eva_care_id AS CargaEvaluacionId" +
+                                  ",eva_modulo AS Modulo" +
+                                  ",eva_curriculo AS Curriculo" +
+                                  ",eva_plan_aula AS PlanAula" +
+                                  ",eva_fecing AS FechaCrea" +
+                                  ",eva_fecmod AS FechaMod" +
+                                  ",eva_usu_mod_id AS UsuarioMod" +
+                                  ",Nombre_usu_modifica AS Nombreusumodifica" +
+                                  ",eva_usu_ing_id AS UsuarioCrea" +
+                                  ",Nombre_Usu_Ingresa AS NombreUsuIngresa" +
+                                  ",eva_estado AS Estado" +
+                                  ",Nombre_Archivo_Carga AS NombreArchivoCarga" +
+                                  ",Semestre_carga AS SemestreCarga" +
+                                  ",Anio_carga AS AnioCarga" +
                             " FROM V_evaluacion " +
-                            " WHERE usu_id = @idCurso; ", p).FirstOrDefault();
+                            " WHERE id_evalucion = @id; ", p).FirstOrDefault();
                     connection.Close();
                     return model;
-                    }
+                }
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Error al acceder a la base de datos.");
                 return null;
             }
         }
 
         public IEnumerable<Evaluacion> Obtener()
         {
-            throw new NotImplementedException();
+            try
+            {          
+                using (var connection = new MySqlConnection(sqlConnectionString))
+                {
+                    connection.Open();
+                    var model = connection.Query<Evaluacion>("SELECT id_evalucion AS Id " +
+                                  ",cur_id AS CursoId" +
+                                  ",Nombre_Curso AS NombreCurso" +
+                                  ",sed_id AS Sedeid" +
+                                  ",Nombre_Sede AS NombreSede" +
+                                  ",fac_id AS FacultadId" +
+                                  ",Nombre_Facultad AS NombreFacultad" +
+                                  ",prog_id AS ProgramaId" +
+                                  ",Nombre_Programa AS NombrePrograma" +
+                                  ",eva_doc_id AS DocenteId" +
+                                  ",Nombre_Docente AS NombreDocente" +
+                                  ",Docu_Docente AS DocumentoDocente" +
+                                  ",Correo_Docente AS CorreoDocente" +
+                                  ",Tel_Docente AS TelefonoDocente" +
+                                  ",eva_care_id AS CargaEvaluacionId" +
+                                  ",eva_modulo AS Modulo" +
+                                  ",eva_curriculo AS Curriculo" +
+                                  ",eva_plan_aula AS PlanAula" +
+                                  ",eva_fecing AS FechaCrea" +
+                                  ",eva_fecmod AS FechaMod" +
+                                  ",eva_usu_mod_id AS UsuarioMod" +
+                                  ",Nombre_usu_modifica AS Nombreusumodifica" +
+                                  ",eva_usu_ing_id AS UsuarioCrea" +
+                                  ",Nombre_Usu_Ingresa AS NombreUsuIngresa" +
+                                  ",eva_estado AS Estado" +
+                                  ",Nombre_Archivo_Carga AS NombreArchivoCarga" +
+                                  ",Semestre_carga AS SemestreCarga" +
+                                  ",Anio_carga AS AnioCarga" +
+                            " FROM V_evaluacion ").ToList();
+                    connection.Close();
+                    return model;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error al acceder a la base de datos.");
+                return null;
+            }
         }
     }
 }
